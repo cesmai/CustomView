@@ -1,9 +1,7 @@
 package com.example.hb.customview
 
 // NOTE les data class sont generalement utilisees pour les objets graphiques ou qui représentent des données d'une base ...
-data class MagicCircle(val maxX: Float, val maxY: Float) {
-
-    //TODO change in fonction of optimization
+data class MagicCircle(var maxX: Float, var maxY: Float) {
 
     var cx: Float = 50F
     var cy: Float = 50F

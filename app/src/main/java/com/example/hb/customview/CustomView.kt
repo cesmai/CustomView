@@ -35,24 +35,22 @@ class CustomView : View {
     private fun init() {
         mPaint.color = Color.BLUE
 
-        /* TODO try this for optimization => change MagicCircle
         mCircle = MagicCircle(0F, 0F)
         mCircle.delta = DELTA
-        */
     }
+
 
     override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
         super.onLayout(changed, left, top, right, bottom)
 
-        mCircle = MagicCircle(width.toFloat(), height.toFloat()) //TODO optimize
-        mCircle.delta = DELTA
+        /* NOT optimized to do new Object in layout functions
+        mCircle = MagicCircle(width.toFloat(), height.toFloat())
+        mCircle.delta = DELTA*/
 
-        /* TODO for optimization
-        mCircle.mMaxX = width.toFloat()
-        mCircle.mMaxY = height.toFloat()
-        */
-
+        mCircle.maxX = width.toFloat()
+        mCircle.maxY = height.toFloat()
     }
+
 
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
