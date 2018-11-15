@@ -10,7 +10,7 @@ import android.view.View
 class CustomView : View {
 
     companion object {
-        val DELTA = 8
+        const val DELTA = 8
     }
 
     // NOTE convention de nommage des variables : commence par mXXX
@@ -22,8 +22,7 @@ class CustomView : View {
     /**
      * Constructors
      */
-    constructor(context: Context) : super(context, null)
-
+    constructor(context: Context) : this(context, null) // call next intern constructor
 
     constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs) {
         init()
@@ -35,20 +34,32 @@ class CustomView : View {
      */
     private fun init() {
         mPaint.color = Color.BLUE
+
+        /* TODO try this for optimization => change MagicCircle
+        mCircle = MagicCircle(0F, 0F)
+        mCircle.delta = DELTA
+        */
     }
 
     override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
         super.onLayout(changed, left, top, right, bottom)
-        mCircle = MagicCircle(width.toFloat(), height.toFloat())
+
+        mCircle = MagicCircle(width.toFloat(), height.toFloat()) //TODO optimize
+        mCircle.delta = DELTA
+
+        /* TODO for optimization
+        mCircle.mMaxX = width.toFloat()
+        mCircle.mMaxY = height.toFloat()
+        */
+
     }
 
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
 
-        mCircle.delta = DELTA
         mCircle.move()
 
         canvas?.drawCircle(mCircle.cx, mCircle.cy, mCircle.rad, mPaint)
-        invalidate() // refresh/invalide la vue => rappelle la vue et donc le onDraw
+        invalidate() // refresh/invalidate the view => redraw the view
     }
 }
