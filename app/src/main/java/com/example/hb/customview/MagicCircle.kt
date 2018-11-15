@@ -12,6 +12,8 @@ data class MagicCircle(var maxX: Float, var maxY: Float) {
     var dx = delta
     var dy = delta
 
+    var color: Int = 0
+
     fun move(){
         // NOTE when comme un switch/case évolué
         when {
