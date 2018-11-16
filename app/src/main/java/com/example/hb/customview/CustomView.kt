@@ -5,14 +5,15 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.util.AttributeSet
+import android.view.MotionEvent
 import android.view.View
 import org.jetbrains.anko.AnkoLogger
 import kotlin.random.Random
 
-class CustomView : View, AnkoLogger {
+class CustomView : View, AnkoLogger, View.OnTouchListener {
 
     companion object {
-        const val DELTA = 8
+        const val DELTA = 3
         const val NB_CIRCLES = 5
     }
 
@@ -31,7 +32,9 @@ class CustomView : View, AnkoLogger {
      */
     constructor(context: Context) : this(context, null) // call next intern constructor
 
-    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs) {
+    constructor(context: Context?, attrs: AttributeSet?) : this(context, attrs, 0)
+
+    constructor(context: Context?, attr: AttributeSet?, styleAttr: Int) : super(context, attr, styleAttr) {
         init()
         initCircles()
     }
@@ -45,6 +48,8 @@ class CustomView : View, AnkoLogger {
 
         mCircle = MagicCircle(0F, 0F)
         mCircle.delta = DELTA
+
+        super.setOnTouchListener(this)
     }
 
 
@@ -52,7 +57,7 @@ class CustomView : View, AnkoLogger {
 
         for (i in 0..NB_CIRCLES) {
 
-            // TODO init MagicCircles with random values
+            // Init MagicCircles with random values
             val oneCircle = MagicCircle(0F, 0F)
 
             with(oneCircle) {
@@ -92,12 +97,19 @@ class CustomView : View, AnkoLogger {
         mCircle.move()
         canvas?.drawCircle(mCircle.cx, mCircle.cy, mCircle.rad, mPaint)
 
-        for (oneCircle in circles) {
-            oneCircle.move()
-            mPaint.color = oneCircle.color
-            canvas?.drawCircle(oneCircle.cx, oneCircle.cy, oneCircle.rad, mPaint)
-        }
+//        for (oneCircle in circles) {
+//            oneCircle.move()
+//            mPaint.color = oneCircle.color
+//            canvas?.drawCircle(oneCircle.cx, oneCircle.cy, oneCircle.rad, mPaint)
+//        }
 
         invalidate() // refresh/invalidate the view => redraw the view
+    }
+
+
+    override fun onTouch(v: View?, event: MotionEvent?): Boolean {
+        mCircle.cx = event?.x ?: mCircle.cx
+        mCircle.cy = event?.x ?: mCircle.cy
+        return true
     }
 }
