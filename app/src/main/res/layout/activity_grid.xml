@@ -9,48 +9,58 @@
         android:columnCount="2"
         android:rowCount="4"
 >
-    <!-- TODO Macha see why text does not display
-    <View
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
+    <!-- TODO Macha WARNING layout_columnWeight is API >=21 (current min is 15) -->
+    <TextView
+            android:layout_gravity="fill"
             android:background="@color/colorBlueDark"
             android:layout_column="0"
             android:layout_row="0"
-            android:layout_columnSpan="2"
-            android:textSize="70sp"
+            android:textSize="50sp"
             android:text="One"
+            android:gravity="center_vertical"
+            android:layout_columnSpan="2"
     />
 
-    <View
-            android:layout_height="80dp"
+   <TextView
+            android:layout_gravity="fill"
             android:background="@color/colorYellow"
             android:layout_column="0"
             android:layout_row="1"
-            android:textSize="70sp"
+            android:textSize="50sp"
             android:text="Two"
+            android:gravity="center_vertical"
     />
 
-    <View
-            android:layout_height="80dp"
+    <TextView
+            android:layout_gravity="fill"
             android:background="@color/colorGreen"
             android:layout_column="1"
             android:layout_row="1"
+            android:textSize="50sp"
+            android:text="Three"
+            android:gravity="center_vertical"
             android:layout_rowSpan="2"
     />
 
-    <View
-            android:layout_height="80dp"
+    <TextView
+            android:layout_gravity="fill"
             android:background="@color/colorBlue"
             android:layout_column="0"
-            android:layout_row="3"
+            android:layout_row="2"
+            android:textSize="50sp"
+            android:text="Four"
+            android:gravity="center_vertical"
             android:layout_rowSpan="2"
     />
 
-    <View
-            android:layout_height="80dp"
+    <TextView
+            android:layout_gravity="fill_horizontal"
             android:background="@color/colorYellow"
-            android:layout_column="0"
-            android:layout_row="4"
+            android:layout_column="1"
+            android:layout_row="3"
+            android:textSize="50sp"
+            android:text="Five"
+            android:gravity="center_vertical"
     />
 
     <!--WARNING layout_columnWeight is API >=21 (current min is 15)-->
