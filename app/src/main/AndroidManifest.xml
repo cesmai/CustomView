@@ -28,13 +28,22 @@
             <!-- </intent-filter> -->
         </activity>
         <activity android:name=".GridActivity">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN"/> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER"/> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity android:name=".LandscapeActivity">
             <!--<intent-filter>-->
                 <!--<action android:name="android.intent.action.MAIN"/>-->
 
                 <!--<category android:name="android.intent.category.LAUNCHER"/>-->
             <!--</intent-filter>-->
         </activity>
-        <activity android:name=".LandscapeActivity">
+        <activity android:name=".GraphicsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
