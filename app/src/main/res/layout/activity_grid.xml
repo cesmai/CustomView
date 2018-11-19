@@ -19,6 +19,7 @@
             android:text="One"
             android:gravity="center_vertical"
             android:layout_columnSpan="2"
+
     />
 
    <TextView
@@ -29,6 +30,7 @@
             android:textSize="50sp"
             android:text="Two"
             android:gravity="center_vertical"
+            android:layout_columnWeight="1"
     />
 
     <TextView
@@ -40,6 +42,8 @@
             android:text="Three"
             android:gravity="center_vertical"
             android:layout_rowSpan="2"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
     />
 
     <TextView
@@ -61,6 +65,7 @@
             android:textSize="50sp"
             android:text="Five"
             android:gravity="center_vertical"
+            android:layout_rowWeight="1"
     />
 
     <!--WARNING layout_columnWeight is API >=21 (current min is 15)-->
